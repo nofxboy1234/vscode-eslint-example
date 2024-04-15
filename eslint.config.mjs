@@ -19,7 +19,8 @@ export default [
   ...compat.extends('airbnb-base'),
   {
     rules: {
-      'no-console': 'off',
+      // 'no-console': 'off',
+      // quotes: ['error', 'double'],
     },
   },
 ];
