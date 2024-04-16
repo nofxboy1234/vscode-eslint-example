@@ -1,11 +1,12 @@
-import globals from "globals";
+import globals from 'globals';
 
-import path from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-import pluginJs from "@eslint/js";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import pluginJs from '@eslint/js';
 
-import eslintConfigPrettier from "eslint-config-prettier";
+import eslintConfigPrettier from 'eslint-config-prettier';
+import stylistic from '@stylistic/eslint-plugin';
 
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
@@ -16,14 +17,18 @@ const compat = new FlatCompat({
 });
 
 export default [
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
+  { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
   { languageOptions: { globals: globals.browser } },
-  ...compat.extends("airbnb-base"),
+  ...compat.extends('airbnb-base'),
   eslintConfigPrettier,
   {
+    plugins: {
+      '@stylistic': stylistic,
+    },
     rules: {
+      '@stylistic/quotes': ['error', 'single'],
       // "no-console": "off",
-      quotes: ["error", "single"],
+      // quotes: ['error', 'single'],
       // indent: "error",
     },
   },
