@@ -27,6 +27,7 @@ export default [
     },
     rules: {
       '@stylistic/quotes': ['error', 'single'],
+      '@stylistic/wrap-iife': ['error', 'inside'],
       // "no-console": "off",
       // quotes: ['error', 'single'],
       // indent: "error",
