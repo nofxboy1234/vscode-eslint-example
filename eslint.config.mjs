@@ -23,7 +23,7 @@ export default [
   {
     rules: {
       // "no-console": "off",
-      // quotes: ["error", "double"],
+      quotes: ["error", "single"],
       // indent: "error",
     },
   },
