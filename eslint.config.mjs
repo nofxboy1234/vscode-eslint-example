@@ -27,11 +27,7 @@ export default [
     },
     rules: {
       '@stylistic/quotes': ['error', 'single'],
-      '@stylistic/wrap-iife': ['error', 'inside'],
-      // '@stylistic/function-paren-newline': ['error', 'multiline'],
-      // "no-console": "off",
-      // quotes: ['error', 'single'],
-      // indent: "error",
+      // '@stylistic/wrap-iife': ['error', 'inside'],
     },
   },
 ];
