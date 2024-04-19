@@ -27,7 +27,6 @@ export default [
     },
     rules: {
       '@stylistic/quotes': ['error', 'single'],
-      // '@stylistic/wrap-iife': ['error', 'inside'],
     },
   },
 ];
