@@ -1,6 +1,27 @@
-let myNumber = 1;
-function addOne() {
-  myNumber++;
-} // define the function
-addOne(); // run the function
-console.log(myNumber); // logs out 2
+const userLeft = false;
+const userWatchingCatMeme = true;
+
+function watchTutorialCallback(callback, errorCallback) {
+  if (userLeft) {
+    errorCallback({
+      name: 'User left',
+      message: ':(',
+    });
+  } else if (userWatchingCatMeme) {
+    errorCallback({
+      name: 'User watching cat meme',
+      message: 'WebDevSimplified < Cat',
+    });
+  } else {
+    callback('Thumbs up and Subscribe');
+  }
+}
+
+watchTutorialCallback(
+  (message) => {
+    console.log(`Success: ${message}`);
+  },
+  (error) => {
+    console.log(`${error.name} ${error.message}`);
+  },
+);
