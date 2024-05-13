@@ -1,11 +1,24 @@
-listen('click', function handler(evt) {
-  setTimeout(function request() {
-    ajax('http://some.url.1', (text) => {
-      if (text == 'hello') {
-        handler();
-      } else if (text == 'world') {
-        request();
-      }
-    });
-  }, 500);
+/* eslint-disable */
+function add(getX, getY, cb) {
+  var x, y;
+  getX(function (xVal) {
+    x = xVal;
+    // both are ready?
+    if (y != undefined) {
+      cb(x + y); // send along sum
+    }
+  });
+  getY(function (yVal) {
+    y = yVal;
+    // both are ready?
+    if (x != undefined) {
+      cb(x + y); // send along sum
+    }
+  });
+}
+
+// `fetchX()` and `fetchY()` are sync or async
+// functions
+add(fetchX, fetchY, function (sum) {
+  console.log(sum); // that was easy, huh?
 });
