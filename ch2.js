@@ -38,6 +38,13 @@ add(fetchX(), fetchY())
   // two numbers.
   // now we chain-call `then(..)` to wait for the
   // resolution of that returned promise.
-  .then(function (sum) {
-    console.log(sum); // that was easier!
-  });
+  .then(
+    // fulfillment handler
+    function (sum) {
+      console.log(sum); // that was easier!
+    },
+    // rejection handler
+    function (err) {
+      console.error(err); // bummer
+    },
+  );
