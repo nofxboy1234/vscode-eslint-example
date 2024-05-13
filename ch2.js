@@ -1,4 +1,14 @@
 /* eslint-disable */
+function fetchX(callback) {
+  callback(10);
+}
+
+function fetchY(callback) {
+  setTimeout(() => {
+    callback(9);
+  }, 5000);
+}
+
 function add(getX, getY, cb) {
   var x, y;
   getX(function (xVal) {
@@ -15,16 +25,6 @@ function add(getX, getY, cb) {
       cb(x + y); // send along sum
     }
   });
-}
-
-function fetchX(callback) {
-  callback(10);
-}
-
-function fetchY(callback) {
-  setTimeout(() => {
-    callback(9);
-  }, 5000);
 }
 
 // `fetchX()` and `fetchY()` are sync or async
