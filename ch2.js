@@ -17,6 +17,16 @@ function add(getX, getY, cb) {
   });
 }
 
+function fetchX(callback) {
+  callback(10);
+}
+
+function fetchY(callback) {
+  setTimeout(() => {
+    callback(9);
+  }, 5000);
+}
+
 // `fetchX()` and `fetchY()` are sync or async
 // functions
 add(fetchX, fetchY, function (sum) {
