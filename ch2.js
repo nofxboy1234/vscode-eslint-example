@@ -28,6 +28,7 @@ function add(xPromise, yPromise) {
         // previously resolved promises
         // throw new Error('Addition failed');
         return values[0] + values[1];
+        // return Promise.resolve(values[0] + values[1]);
       })
   );
 }
