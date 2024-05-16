@@ -1,19 +1,21 @@
 /* eslint-disable */
 var p = new Promise(function (resolve, reject) {
-  foo.bar(); // `foo` is not defined, so error!
-  resolve(42); // never gets here :(
+  resolve(42);
 });
 
 p.then(
-  function fulfilled() {
-    // foo.bar(); // `foo` is not defined, so error!
-    throw new Error('dylan error');
-
-    // never gets here :(
+  function fulfilled(msg) {
+    foo.bar();
+    console.log(msg); // never gets here :(
   },
   function rejected(err) {
-    // `err` will be a `TypeError` exception object
-    // from the `foo.bar()` line.
+    // never gets here either :(
     console.error(err);
   },
-);
+)
+  .then(function fulfilled(msg) {
+    console.log('hello');
+  })
+  .catch(function rejected(err) {
+    console.error(err);
+  });
