@@ -1,22 +1,19 @@
 /* eslint-disable */
-function delay(time) {
+// assume an `ajax( {url}, {callback} )` utility
+
+// Promise-aware ajax
+function request(url) {
   return new Promise(function (resolve, reject) {
-    setTimeout(resolve, time);
+    // the `ajax(..)` callback should be our
+    // promise's `resolve(..)` function
+    ajax(url, resolve);
   });
 }
 
-delay(1000) // step 1
-  .then(function STEP2() {
-    console.log('step 2 (after 1000ms)');
-    return delay(2000);
+request('http://some.url.1/')
+  .then(function (response1) {
+    return request('http://some.url.2/?v=' + response1);
   })
-  .then(function STEP3() {
-    console.log('step 3 (after another 2000ms)');
-  })
-  .then(function STEP4() {
-    console.log('step 4 (next Job)');
-    return delay(2000);
-  })
-  .then(function STEP5() {
-    console.log('step 5 (after another 2000ms)');
+  .then(function (response2) {
+    console.log(response2);
   });
