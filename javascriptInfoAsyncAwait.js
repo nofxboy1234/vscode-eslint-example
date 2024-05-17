@@ -1,26 +1,19 @@
-async function showAvatar() {
-  // read our JSON
-  const response = await fetch('/article/promise-chaining/user.json');
-  const user = await response.json();
+class Thenable {
+  constructor(num) {
+    this.num = num;
+  }
 
-  // read github user
-  const githubResponse = await fetch(
-    `https://api.github.com/users/${user.name}`,
-  );
-  const githubUser = await githubResponse.json();
-
-  // show the avatar
-  const img = document.createElement('img');
-  img.src = githubUser.avatar_url;
-  img.className = 'promise-avatar-example';
-  document.body.append(img);
-
-  // wait 3 seconds
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
-  img.remove();
-
-  return githubUser;
+  then(resolve, reject) {
+    console.log(resolve);
+    // resolve with this.num*2 after 1000ms
+    setTimeout(() => resolve(this.num * 2), 1000); // (*)
+  }
 }
 
-showAvatar();
+async function f() {
+  // waits for 1 second, then result becomes 2
+  const result = await new Thenable(1);
+  console.log(result);
+}
+
+f();
