@@ -1,7 +1,9 @@
-class Waiter {
-  async wait() {
-    return await Promise.resolve(1);
+async function f() {
+  try {
+    const response = await fetch('http://no-such-url');
+  } catch (err) {
+    console.error(err); // TypeError: failed to fetch
   }
 }
 
-new Waiter().wait().then(console.log); // 1 (this is the same as (result => console.log(result)))
+f();
