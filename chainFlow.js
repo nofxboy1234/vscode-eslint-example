@@ -1,18 +1,22 @@
 /* eslint-disable */
-var p = Promise.resolve(21);
-
-p.then(function (v) {
-  console.log(v); // 21
-
-  // create a promise to return
+function delay(time) {
   return new Promise(function (resolve, reject) {
-    // introduce asynchrony!
-    setTimeout(function () {
-      // fulfill with value `42`
-      resolve(v * 2);
-    }, 100);
+    setTimeout(resolve, time);
   });
-}).then(function (v) {
-  // runs after the 100ms delay in the previous step
-  console.log(v); // 42
-});
+}
+
+delay(100) // step 1
+  .then(function STEP2() {
+    console.log('step 2 (after 100ms)');
+    return delay(200);
+  })
+  .then(function STEP3() {
+    console.log('step 3 (after another 200ms)');
+  })
+  .then(function STEP4() {
+    console.log('step 4 (next Job)');
+    return delay(50);
+  })
+  .then(function STEP5() {
+    console.log('step 5 (after another 50ms)');
+  });
