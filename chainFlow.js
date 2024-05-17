@@ -5,18 +5,18 @@ function delay(time) {
   });
 }
 
-delay(100) // step 1
+delay(1000) // step 1
   .then(function STEP2() {
-    console.log('step 2 (after 100ms)');
-    return delay(200);
+    console.log('step 2 (after 1000ms)');
+    return delay(2000);
   })
   .then(function STEP3() {
-    console.log('step 3 (after another 200ms)');
+    console.log('step 3 (after another 2000ms)');
   })
   .then(function STEP4() {
     console.log('step 4 (next Job)');
-    return delay(50);
+    return delay(2000);
   })
   .then(function STEP5() {
-    console.log('step 5 (after another 50ms)');
+    console.log('step 5 (after another 2000ms)');
   });
