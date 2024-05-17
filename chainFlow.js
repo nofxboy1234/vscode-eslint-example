@@ -1,15 +1,14 @@
 /* eslint-disable */
-var p = new Promise(function (resolve, reject) {
-  reject('Oops');
-});
+var p = Promise.resolve(42);
 
-var p2 = p.then(
-  function fulfilled() {
+p.then(
+  // assumed fulfillment handler, if omitted or
+  // any other non-function value passed
+  // function(v) {
+  //     return v;
+  // }
+  null,
+  function rejected(err) {
     // never gets here
   },
-  // assumed rejection handler, if omitted or
-  // any other non-function value passed
-  // function(err) {
-  //     throw err;
-  // }
 );
