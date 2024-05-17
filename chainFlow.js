@@ -4,10 +4,11 @@ var p = Promise.resolve(21);
 p.then(function (v) {
   console.log(v); // 21
 
-  // fulfill the chained promise with value `42`
-  return v * 2;
-})
-  // here's the chained promise
-  .then(function (v) {
-    console.log(v); // 42
+  // create a promise and return it
+  return new Promise(function (resolve, reject) {
+    // fulfill with value `42`
+    resolve(v * 2);
   });
+}).then(function (v) {
+  console.log(v); // 42
+});
