@@ -1,16 +1,63 @@
+const { setTimeout: setTimeoutPromiseBased } = require('node:timers/promises');
 /* eslint-disable */
-const yourAsyncFunction = async () => {
+
+function promisifyTimeout() {
+  return new Promise((resolve) => {
+    // do something asynchronously and return a promise
+    setTimeout(() => {
+      resolve('hello');
+    }, 2000);
+  });
+}
+
+function promisifyLog() {
+  return new Promise((resolve) => {
+    // do something asynchronously and return a promise
+    promisifyTimeout().then((message) => {
+      console.log(`message is: ${message}`);
+      resolve();
+    });
+  });
+}
+
+const yourAsyncFunction2 = async () => {
   // do something asynchronously and return a promise
-  return result;
+  // return await promisifyTimeout();
+
+  // const result = await promisifyTimeout();
+  // return result;
+
+  // return promisifyTimeout();
+
+  await promisifyLog();
+  // const message = await setTimeoutPromiseBased(2000, 'hello');
+  // console.log(`message is: ${message}`);
+  // const message = await setTimeoutPromiseBased(2000, () => {
+  //   console.log('hey');
+  // });
+  // message();
+  return promisifyTimeout();
+
+  // setTimeout(() => {
+  //   return 'hello';
+  // }, 2000);
 };
 
-anArray.forEach(async (item) => {
-  // do something asynchronously for each item in 'anArray'
-  // one could also use .map here to return an array of promises to use with 'Promise.all()'
+yourAsyncFunction2().then((result) => {
+  console.log(`result is: ${result}`);
 });
 
-server.getPeople().then(async (people) => {
-  people.forEach((person) => {
-    // do something asynchronously for each person
-  });
-});
+// const anArray = ['a', 'b', 'c'];
+// anArray.forEach(async (item) => {
+//   // do something asynchronously for each item in 'anArray'
+//   setTimeout(() => {
+//     console.log(item);
+//   }, 2000);
+//   // one could also use .map here to return an array of promises to use with 'Promise.all()'
+// });
+
+// server.getPeople().then(async (people) => {
+//   people.forEach((person) => {
+//     // do something asynchronously for each person
+//   });
+// });
