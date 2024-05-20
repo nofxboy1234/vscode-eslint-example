@@ -1,6 +1,6 @@
 class Waiter {
   async wait() {
-    return Promise.resolve(1);
+    return 1;
     // return await Promise.resolve(1);
   }
 }
