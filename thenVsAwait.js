@@ -62,6 +62,6 @@ const fetchNamesWithAwait = async () => {
 };
 
 console.log('Before fetch call');
-fetchNamesWithThen();
-// fetchNamesWithAwait();
+// fetchNamesWithThen();
+fetchNamesWithAwait();
 console.log('After fetch call');
