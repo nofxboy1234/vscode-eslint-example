@@ -42,7 +42,6 @@ const fetchNamesWithThen = () => {
     .then((data) =>
       data.forEach((name) => {
         console.log(`Then: inside forEach: ${name.name}`);
-        const li = {};
       }),
     );
   console.log('Then: End of function');
@@ -57,13 +56,12 @@ const fetchNamesWithAwait = async () => {
 
   data.forEach((name) => {
     console.log(`Then: inside forEach: ${name.name}`);
-    const li = {};
   });
 
   console.log('Async: End of function');
 };
 
 console.log('Before fetch call');
-// fetchNamesWithThen();
-fetchNamesWithAwait();
+fetchNamesWithThen();
+// fetchNamesWithAwait();
 console.log('After fetch call');
