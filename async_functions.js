@@ -1,28 +1,26 @@
-function loadJson(url) {
-  return fetch(url).then((response) => response.json());
+async function showAvatar() {
+  // read our JSON
+  const response = await fetch('/article/promise-chaining/user.json');
+  const user = await response.json();
+
+  // read github user
+  const githubResponse = await fetch(
+    `https://api.github.com/users/${user.name}`,
+  );
+  const githubUser = await githubResponse.json();
+
+  // show the avatar
+  const img = document.createElement('img');
+  img.src = githubUser.avatar_url;
+  img.className = 'promise-avatar-example';
+  document.body.append(img);
+
+  // wait 3 seconds
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+
+  img.remove();
+
+  return githubUser;
 }
 
-function loadGithubUser(name) {
-  return loadJson(`https://api.github.com/users/${name}`);
-}
-
-function showAvatar(githubUser) {
-  return new Promise((resolve, reject) => {
-    const img = document.createElement('img');
-    img.src = githubUser.avatar_url;
-    img.className = 'promise-avatar-example';
-    document.body.append(img);
-
-    setTimeout(() => {
-      img.remove();
-      resolve(githubUser);
-    }, 3000);
-  });
-}
-
-// Use them:
-loadJson('/article/promise-chaining/user.json')
-  .then((user) => loadGithubUser(user.name))
-  .then(showAvatar)
-  .then((githubUser) => alert(`Finished showing ${githubUser.name}`));
-// ...
+showAvatar();
