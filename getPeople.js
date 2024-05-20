@@ -36,19 +36,19 @@ async function getPersonsInfo2(name) {
   return foundPerson;
 }
 
-getPersonsInfo('Odin').then((message) => {
-  console.log(message);
-});
-getPersonsInfo('Dylan').then((message) => {
-  console.log(message);
-});
+// getPersonsInfo('Odin').then((message) => {
+//   console.log(message);
+// });
+// getPersonsInfo('Dylan').then((message) => {
+//   console.log(message);
+// });
 
-getPersonsInfo2('Odin').then((message) => {
-  console.log(message);
-});
-getPersonsInfo2('Dylan').then((message) => {
-  console.log(message);
-});
+// getPersonsInfo2('Odin').then((message) => {
+//   console.log(message);
+// });
+// getPersonsInfo2('Dylan').then((message) => {
+//   console.log(message);
+// });
 
 function uppercase(name) {
   return new Promise((resolve, reject) => {
@@ -59,6 +59,13 @@ function uppercase(name) {
 }
 
 server.getPeople().then(async (people) => {
+  uppercase('aaa').then((upperCased) => {
+    console.log(upperCased);
+  });
+
+  const result = await uppercase('bbb');
+  console.log(result);
+
   people.forEach((person) => {
     uppercase(person.name).then((upperCased) => {
       console.log(upperCased);
@@ -67,3 +74,14 @@ server.getPeople().then(async (people) => {
     // console.log(upperCased);
   });
 });
+
+/*
+wait 2 seconds
+wait 2 seconds
+AAA
+BBB
+wait 2 seconds
+ODIN
+THOR
+FREYJA
+*/
