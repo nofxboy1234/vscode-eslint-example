@@ -10,10 +10,10 @@ class Thenable {
   }
 }
 
-async function f() {
+async function hello() {
   // waits for 1 second, the result becomes 2
   const result = await new Thenable(1);
   console.log(result);
 }
 
-f();
+hello();
