@@ -1,11 +1,9 @@
 async function hello() {
-  await Promise.reject(new Error('Whoops!'));
+  try {
+    const response = await fetch('http://no-such-url');
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-async function goodbye() {
-  throw new Error('Whoops!');
-}
-
-hello().catch((error) => {
-  console.log(error);
-});
+hello();
