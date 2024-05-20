@@ -1,6 +1,2 @@
-async function f() {
-  // return 1;
-  return Promise.resolve(1);
-}
-
-f().then(console.log);
+// works only inside async functions
+let value = await promise;
