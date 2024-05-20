@@ -11,7 +11,7 @@ function promisifyTimeout() {
 }
 
 function promisifyLog() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     // do something asynchronously and return a promise
     promisifyTimeout().then((message) => {
       console.log(`message is: ${message}`);
@@ -29,13 +29,29 @@ const yourAsyncFunction2 = async () => {
 
   // return promisifyTimeout();
 
-  await promisifyLog();
+  const promise = promisifyLog();
+  try {
+    await promise;
+    await promise;
+  } catch (error) {
+    console.log(error);
+  }
+
+  // await promisifyLog();
+  console.log('here');
+
+  // promisifyLog().then(() => {
+  //   console.log('here');
+  // });
+
   // const message = await setTimeoutPromiseBased(2000, 'hello');
   // console.log(`message is: ${message}`);
+
   // const message = await setTimeoutPromiseBased(2000, () => {
   //   console.log('hey');
   // });
   // message();
+
   return promisifyTimeout();
 
   // setTimeout(() => {
