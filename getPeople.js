@@ -50,3 +50,20 @@ getPersonsInfo2('Dylan').then((message) => {
   console.log(message);
 });
 
+function uppercase(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(name.toUpperCase());
+    }, 2000);
+  });
+}
+
+server.getPeople().then(async (people) => {
+  people.forEach((person) => {
+    uppercase(person.name).then((upperCased) => {
+      console.log(upperCased);
+    });
+    // const upperCased = await uppercase(person.name);
+    // console.log(upperCased);
+  });
+});
