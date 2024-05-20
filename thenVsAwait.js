@@ -35,41 +35,35 @@ const server = {
 };
 
 const fetchNamesWithThen = () => {
-  console.log('Then: Start on 6');
+  console.log('Then: Start of function');
   server
     .getPeople()
     .then((resp) => resp.json())
     .then((data) =>
       data.forEach((name) => {
-        console.log(
-          `Then: inside the last .then on 10 and inside forEach: ${name.name}`,
-        );
+        console.log(`Then: inside forEach: ${name.name}`);
         const li = {};
-        li.textContent = name.name;
-        const container = {};
       }),
     );
-  console.log('Then: End on 16');
+  console.log('Then: End of function');
 };
 
 const fetchNamesWithAwait = async () => {
-  console.log('Async: Start on 20');
+  console.log('Async: Start of function');
   const response = await server.getPeople();
   console.log('Async: after first await...');
   const data = await response.json();
   console.log('Async: after second await...');
 
   data.forEach((name) => {
-    console.log(`Async: after second await and inside forEach: ${name.name}`);
+    console.log(`Then: inside forEach: ${name.name}`);
     const li = {};
-    li.textContent = name.name;
-    const container = {};
   });
 
-  console.log('Async...end of function');
+  console.log('Async: End of function');
 };
 
 console.log('Before fetch call');
 // fetchNamesWithThen();
-fetchNamesWithAwait()
+fetchNamesWithAwait();
 console.log('After fetch call');
