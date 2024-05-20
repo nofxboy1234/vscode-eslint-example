@@ -1,9 +1,11 @@
-class Waiter {
-  async wait() {
-    return 1;
-    // return await Promise.resolve(1);
-  }
+async function hello() {
+  await Promise.reject(new Error('Whoops!'));
 }
 
-new Waiter().wait().then(console.log);
-// new Waiter().wait().then((result) => console.log(result));
+async function goodbye() {
+  throw new Error('Whoops!');
+}
+
+hello().catch((error) => {
+  console.log(error);
+});
