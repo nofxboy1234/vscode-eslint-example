@@ -6,6 +6,22 @@ function doubleAfter2Seconds(x) {
   });
 }
 
-doubleAfter2Seconds(10).then((r) => {
-  console.log(r);
+function addPromise(x) {
+  return new Promise((resolve) => {
+    doubleAfter2Seconds(10).then((a) => {
+      doubleAfter2Seconds(20).then((b) => {
+        doubleAfter2Seconds(30).then((c) => {
+          resolve(x + a + b + c);
+        });
+      });
+    });
+  });
+}
+
+addPromise(10).then((result) => {
+  console.log(result);
 });
+
+// doubleAfter2Seconds(10).then((r) => {
+//   console.log(r);
+// });
