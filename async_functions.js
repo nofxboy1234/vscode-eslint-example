@@ -1,7 +1,9 @@
 async function hello() {
   try {
-    const response = await fetch('http://no-such-url');
+    const response = await fetch('/no-user-here');
+    const user = await response.json();
   } catch (err) {
+    // catches errors both in fetch and response.json
     console.error(err);
   }
 }
