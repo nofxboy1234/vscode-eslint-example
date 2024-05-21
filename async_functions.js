@@ -1,19 +1,19 @@
 async function hello() {
-  return Promise.reject(new Error('Whoops!'));
-  // await Promise.reject(new Error('Whoops!'));
-}
-
-async function bye() {
-  throw new Error('Whoops!');
+  try {
+    const response = await fetch('http://no-such-url');
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 let promise;
 (async () => {
-  try {
-    promise = hello();
-    const response = await promise;
-    console.log(response);
-  } catch (err) {
-    console.error(err);
-  }
+  hello();
+  // try {
+  //   promise = hello();
+  //   const response = await promise;
+  //   console.log(response);
+  // } catch (err) {
+  //   console.error(err);
+  // }
 })();
