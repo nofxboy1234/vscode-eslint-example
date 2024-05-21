@@ -20,4 +20,9 @@ async function yolo() {
 }
 
 const safeYolo = handleError(yolo);
-safeYolo();
+const promise = safeYolo();
+
+(async () => {
+  const result = await promise;
+  console.log(result);
+})();
