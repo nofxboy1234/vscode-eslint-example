@@ -1,16 +1,12 @@
 async function hello() {
-  try {
-    const response = await fetch('/no-user-here');
-    const user = await response.json();
-  } catch (err) {
-    // catches errors both in fetch and response.json
-    console.error(err);
-  }
+  const response = await fetch('http://no-such-url');
 }
 
 let promise;
 (async () => {
-  hello();
+  hello().catch((err) => {
+    console.error(err);
+  });
   // try {
   //   promise = hello();
   //   const response = await promise;
