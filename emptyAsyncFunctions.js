@@ -32,9 +32,15 @@
 //   });
 // }
 
+// function getValue() {
+//   return new Promise((resolve, reject) => {
+//     reject(new Error('promise failed!'));
+//   });
+// }
+
 function getValue() {
   return new Promise((resolve, reject) => {
-    reject(new Error('promise failed!'));
+    throw new Error('promise failed!');
   });
 }
 
