@@ -1,4 +1,4 @@
-async function getValue() {}
+// async function getValue() {}
 
 // async function getValue() {
 //   return undefined;
@@ -32,15 +32,16 @@ async function getValue() {}
 //   });
 // }
 
-// function getValue() {
-//   return new Promise((resolve, reject) => {
-//     reject(new Error('promise failed!'));
-//   });
-// }
+function getValue() {
+  return new Promise((resolve, reject) => {
+    reject(new Error('promise failed!'));
+  });
+}
 
+let promise;
 (async () => {
   try {
-    const promise = getValue();
+    promise = getValue();
     const response = await promise;
     console.log(response);
   } catch (err) {
