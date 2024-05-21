@@ -1,8 +1,16 @@
+/* eslint-disable */
 // Create a function without any error handling
 async function asyncYolo() {
   // do something that errors out
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-  const wes = await fetch('https://no.com');
+  try {
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    const response = await fetch('https://no.com');
+    if (!response.ok) {
+      throw new Error('response was not ok!');
+    }
+  } catch (err) {
+    throw err;
+  }
 }
 
 function yolo() {
@@ -26,7 +34,7 @@ function yolo() {
   });
 }
 
-const promise = yolo();
+const promise = asyncYolo();
 promise
   .then((message) => {
     console.log(message);
