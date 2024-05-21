@@ -1,4 +1,14 @@
 /* eslint-disable */
+
+function handleError(fn) {
+  return function (...params) {
+    return fn(...params).catch(function (err) {
+      // do something with the error!
+      console.error(`Oops!`, err);
+    });
+  };
+}
+
 // Create a function without any error handling
 async function asyncYolo() {
   // do something that errors out
