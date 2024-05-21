@@ -7,14 +7,14 @@ function sleep(amount) {
   });
 }
 
-sleep(500)
+sleep(3000)
   .then((result) => {
     console.log(result);
-    return sleep(1000);
+    return sleep(2000);
   })
   .then((result) => {
     console.log(result);
-    return sleep(750);
+    return sleep(1000);
   })
   .then((result) => {
     console.log(result);
