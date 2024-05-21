@@ -19,10 +19,15 @@ async function yolo() {
   const response = await fetcher('https://no.com');
 }
 
-const safeYolo = handleError(yolo);
-const promise = safeYolo();
+// const safeYolo = handleError(yolo);
+// const promise = safeYolo();
+const promise = yolo();
 
 (async () => {
   const result = await promise;
   console.log(result);
 })();
+
+process.on('unhandledRejection', (error) => {
+  console.error('unhandledRejection', error);
+});
