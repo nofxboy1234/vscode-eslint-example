@@ -12,12 +12,15 @@ function yolo() {
       fetch('https://no.com')
         .then((response) => {
           if (!response.ok) {
-            throw new Error('response was not ok!');
+            return reject(new Error('response was not ok!'));
+            // throw new Error('response was not ok!');
           }
           console.log(`response: ${response}`);
         })
         .catch((err) => {
-          console.error(err);
+          reject(err);
+          // throw err;
+          // console.error(err);
         });
     });
   });
