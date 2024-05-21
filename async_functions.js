@@ -18,7 +18,14 @@ function addPromise(x) {
   });
 }
 
-addPromise(10).then((result) => {
+async function addAsync(x) {
+  const a = await doubleAfter2Seconds(10);
+  const b = await doubleAfter2Seconds(20);
+  const c = await doubleAfter2Seconds(30);
+  return x + a + b + c;
+}
+
+addAsync(10).then((result) => {
   console.log(result);
 });
 
