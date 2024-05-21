@@ -1,7 +1,7 @@
 function sleep(amount) {
   return new Promise((resolve, reject) => {
     if (amount <= 300) {
-      return reject('That is too fast, cool it down!');
+      reject(new Error('That is too fast, cool it down!'));
     }
     setTimeout(() => resolve(`Slept for ${amount}`), amount);
   });
