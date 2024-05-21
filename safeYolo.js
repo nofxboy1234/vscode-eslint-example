@@ -4,7 +4,8 @@ function handleError(fn) {
   return function (...params) {
     return fn(...params).catch(function (err) {
       // do something with the error!
-      console.error(`Oops!`, err);
+      throw err;
+      // console.error(`Oops!`, err);
     });
   };
 }
@@ -24,8 +25,12 @@ const promise = safeYolo();
 // const promise = yolo();
 
 (async () => {
-  const result = await promise;
-  console.log(result);
+  try {
+    const result = await promise;
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
 })();
 
 process.on('unhandledRejection', (error) => {
