@@ -19,9 +19,9 @@ async function yolo() {
   const response = await fetcher('https://no.com');
 }
 
-// const safeYolo = handleError(yolo);
-// const promise = safeYolo();
-const promise = yolo();
+const safeYolo = handleError(yolo);
+const promise = safeYolo();
+// const promise = yolo();
 
 (async () => {
   const result = await promise;
