@@ -7,9 +7,18 @@ function sleep(amount) {
   });
 }
 
-sleep(2000)
-  .then((message) => {
-    console.log(message);
+sleep(500)
+  .then((result) => {
+    console.log(result);
+    return sleep(1000);
+  })
+  .then((result) => {
+    console.log(result);
+    return sleep(750);
+  })
+  .then((result) => {
+    console.log(result);
+    console.log('Done!');
   })
   .catch((err) => {
     console.error(err);
