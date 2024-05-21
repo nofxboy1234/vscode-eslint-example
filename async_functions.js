@@ -1,9 +1,11 @@
-// Normal function
-function add(x, y) {
-  return x + y;
+function doubleAfter2Seconds(x) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(x * 2);
+    }, 2000);
+  });
 }
 
-// Async function
-async function add(x, y) {
-  return x + y;
-}
+doubleAfter2Seconds(10).then((r) => {
+  console.log(r);
+});
