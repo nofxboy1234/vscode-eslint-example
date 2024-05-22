@@ -37,15 +37,21 @@
   console.log(`Sync log: ${i}`);
 });
 
+async function double(item) {
+  return item * 2;
+}
+
 // Asynchronous
 const outerMessage = 'Hello, ';
 
 function asyncForEach(array, cb) {
-  array.forEach(async function (i) {
+  array.forEach(async function (item) {
+    // do something asynchronously for each item in 'anArray'
+    // one could also use .map here to return an array of promises to use with 'Promise.all()'
     await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
     const message = 'Async log:';
-    console.log(`${outerMessage}${message}`);
-    cb(i);
+    console.log(`${outerMessage}${message} ${item}`);
+    cb(await double(item));
   });
 }
 
