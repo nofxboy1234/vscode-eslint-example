@@ -12,5 +12,6 @@
 // setTimeout(console.log, 3000, 'hello');
 // console.log('End!');
 
+// Promises use microtasks
 Promise.resolve().then(() => console.log('Hey!'));
 console.log('Yo!');
