@@ -39,7 +39,17 @@
 
 // Asynchronous
 const outerMessage = 'Hello, ';
+
 function asyncForEach(array, cb) {
+  array.forEach(async function (i) {
+    await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
+    const message = 'Async log:';
+    console.log(`${outerMessage}${message}`);
+    cb(i);
+  });
+}
+
+function asyncForEachUsingSetTimeout(array, cb) {
   array.forEach(function (i) {
     setTimeout(
       (message) => {
