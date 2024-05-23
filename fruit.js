@@ -11,4 +11,12 @@ const getFruit = async (name) => {
   // return fruits[name];
 };
 
+const makeSmoothie = async () => {
+  const a = await getFruit('pineapple');
+  const b = await getFruit('strawberry');
+
+  return [a, b];
+};
+
 getFruit('peach').then(console.log);
+makeSmoothie().then(console.log);
