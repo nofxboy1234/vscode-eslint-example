@@ -62,6 +62,7 @@ function asyncForEachUsingSetTimeout(array, cb) {
     setTimeout(
       (message) => {
         console.log(`${outerMessage}${message} ${item}`);
+        
         cb(item * 2);
       },
       0,
