@@ -16,6 +16,8 @@ const makeSmoothie = async () => {
   const b = getFruit('strawberry');
 
   return Promise.all([a, b]);
+  // const smoothie = await Promise.all([a, b]);
+  // return smoothie;
 };
 
 const makeSmoothie2 = () => {
