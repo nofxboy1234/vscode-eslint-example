@@ -45,7 +45,7 @@ async function double(item) {
 const outerMessage = 'Hello, ';
 
 function asyncForEach(array, cb) {
-  array.forEach(async function (item) {
+  array.forEach(async function itemCallback(item) {
     // do something asynchronously for each item in 'array'
     // one could also use .map here to return an array of promises to use with 'Promise.all()'
     await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
