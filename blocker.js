@@ -14,12 +14,12 @@ const codeBlocker = () => {
 
   // Async blocking
 
-  return new Promise((resolve, reject) => {
+  return Promise.resolve().then((v) => {
     let i = 0;
     while (i < 1000000000) {
       i++;
     }
-    resolve('billion loops done');
+    return 'billion loops done';
   });
 };
 
