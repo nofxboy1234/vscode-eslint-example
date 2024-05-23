@@ -46,12 +46,12 @@ const outerMessage = 'Hello, ';
 
 function asyncForEach(array, cb) {
   array.forEach(async function (item) {
-    // await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
-
+    
     // do something asynchronously for each item in 'array'
     // one could also use .map here to return an array of promises to use with 'Promise.all()'
-    const doubledItem = await double(item);
-    cb([item, doubledItem]);
+    await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
+    // const doubledItem = await double(item);
+    cb([item, item * 2]);
   });
 }
 
