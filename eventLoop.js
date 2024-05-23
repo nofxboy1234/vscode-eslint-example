@@ -46,12 +46,12 @@ const outerMessage = 'Hello, ';
 
 function asyncForEach(array, cb) {
   array.forEach(async function (item) {
-    // do something asynchronously for each item in 'anArray'
+    // await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
+
+    // do something asynchronously for each item in 'array'
     // one could also use .map here to return an array of promises to use with 'Promise.all()'
-    await Promise.resolve(); // Causes function to be deferred - executes once call stack is empty
-    const message = 'Async log:';
-    console.log(`${outerMessage}${message} ${item}`);
-    cb(await double(item));
+    const doubledItem = await double(item);
+    cb([item, doubledItem]);
   });
 }
 
@@ -68,8 +68,11 @@ function asyncForEachUsingSetTimeout(array, cb) {
   });
 }
 
-asyncForEach([1, 2, 3, 4], function (i) {
-  console.log(i);
+asyncForEach([1, 2, 3, 4], function ([item, doubledItem]) {
+  const message = 'Async log:';
+  console.log(`${outerMessage}${message} ${item}`);
+
+  console.log(doubledItem);
 });
 
 console.log('end');
