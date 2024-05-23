@@ -52,7 +52,6 @@ function asyncForEach(array, cb) {
     // const doubledItem = await double(item);
     const message = 'Async log:';
     console.log(`${outerMessage}${message} ${item}`);
-
     cb(item * 2);
   });
 }
@@ -62,7 +61,6 @@ function asyncForEachUsingSetTimeout(array, cb) {
     setTimeout(
       (message) => {
         console.log(`${outerMessage}${message} ${item}`);
-        
         cb(item * 2);
       },
       0,
@@ -71,12 +69,12 @@ function asyncForEachUsingSetTimeout(array, cb) {
   });
 }
 
-asyncForEachUsingSetTimeout([1, 2, 3, 4], function (doubledItem) {
-  console.log(doubledItem);
-});
-
-// asyncForEach([1, 2, 3, 4], function (doubledItem) {
+// asyncForEachUsingSetTimeout([1, 2, 3, 4], function (doubledItem) {
 //   console.log(doubledItem);
 // });
+
+asyncForEach([1, 2, 3, 4], function (doubledItem) {
+  console.log(doubledItem);
+});
 
 console.log('end');
