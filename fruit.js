@@ -12,10 +12,10 @@ const getFruit = async (name) => {
 };
 
 const makeSmoothie = async () => {
-  const a = await getFruit('pineapple');
-  const b = await getFruit('strawberry');
+  const a = getFruit('pineapple');
+  const b = getFruit('strawberry');
 
-  return [a, b];
+  return Promise.all([a, b]);
 };
 
 const makeSmoothie2 = () => {
