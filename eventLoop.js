@@ -70,12 +70,13 @@ function asyncForEachUsingSetTimeout(array, cb) {
   });
 }
 
+asyncForEach([1, 2, 3, 4], function (doubledItem) {
+  console.log(doubledItem);
+});
+
+
 // asyncForEachUsingSetTimeout([1, 2, 3, 4], function (doubledItem) {
 //   console.log(doubledItem);
 // });
-
-asyncForEachUsingSetTimeout([1, 2, 3, 4], function (doubledItem) {
-  console.log(doubledItem);
-});
 
 console.log('end');
