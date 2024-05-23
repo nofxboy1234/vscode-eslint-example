@@ -18,5 +18,16 @@ const makeSmoothie = async () => {
   return [a, b];
 };
 
+const makeSmoothie2 = () => {
+  let a;
+  return getFruit('pineapple')
+    .then((v) => {
+      a = v;
+      return getFruit('strawberry');
+    })
+    .then((v) => [a, v]);
+};
+
 getFruit('peach').then(console.log);
 makeSmoothie().then(console.log);
+makeSmoothie2().then(console.log);
