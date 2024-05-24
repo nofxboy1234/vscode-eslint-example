@@ -38,7 +38,8 @@ const codeBlocker = () => {
 log('Synchronous 1');
 
 // log(codeBlocker());
-codeBlocker().then((result) => {
+const promise = codeBlocker();
+promise.then((result) => {
   console.log('async code');
   log(result);
 });
