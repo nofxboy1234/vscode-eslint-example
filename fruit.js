@@ -25,13 +25,15 @@ const makeSmoothieNonConcurrent = async () => {
   const b = await getFruit('strawberry');
 
   return [a, b];
+};
 
-  // const a = getFruit('pineapple');
-  // const b = getFruit('strawberry');
+const makeSmoothieConcurrent = async () => {
+  const a = getFruit('pineapple');
+  const b = getFruit('strawberry');
 
-  // return Promise.all([a, b]);
-  // // const smoothie = await Promise.all([a, b]);
-  // // return smoothie;
+  return Promise.all([a, b]);
+  // const smoothie = await Promise.all([a, b]);
+  // return smoothie;
 };
 
 const makeSmoothie2 = () => {
@@ -47,7 +49,8 @@ const makeSmoothie2 = () => {
 // getFruit('peach').then(console.log);
 // console.log('hello');
 
-makeSmoothieNonConcurrent().then(log);
+makeSmoothieConcurrent().then(log);
+// makeSmoothieNonConcurrent().then(log);
 console.log('hello');
 
 // makeSmoothie2().then(console.log);
