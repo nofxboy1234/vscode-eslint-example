@@ -7,8 +7,9 @@ const getFruit = async (name) => {
     strawberry: 'STRAWBERRY',
   };
 
-  return Promise.resolve(fruits[name]);
-  // return fruits[name];
+  // Can use the below without `async` keyword above
+  // return Promise.resolve(fruits[name]);
+  return fruits[name];
 };
 
 const makeSmoothie = async () => {
@@ -31,5 +32,7 @@ const makeSmoothie2 = () => {
 };
 
 getFruit('peach').then(console.log);
-makeSmoothie().then(console.log);
-makeSmoothie2().then(console.log);
+console.log('hello');
+
+// makeSmoothie().then(console.log);
+// makeSmoothie2().then(console.log);
