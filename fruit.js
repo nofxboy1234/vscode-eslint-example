@@ -67,15 +67,26 @@ const badSmoothie = async () => {
 
 // makeSmoothieConcurrent().then(log);
 // makeSmoothieNonConcurrent().then(log);
-console.log('hello');
+// console.log('hello');
 
 // makeSmoothie2().then(console.log);
 
-const promise = badSmoothie();
-promise
-  .then((result) => {
-    console.log(`Successful smoothie! - ${result}`);
-  })
-  .catch((err) => {
-    console.error(`catch 2: ${err}`);
-  });
+// const promise = badSmoothie();
+// promise
+//   .then((result) => {
+//     console.log(`Successful smoothie! - ${result}`);
+//   })
+//   .catch((err) => {
+//     console.error(`catch 2: ${err}`);
+//   });
+
+const fruits = ['peach', 'pineapple', 'strawberry'];
+const smoothie = fruits.map(async (v) => {
+  const emoji = await getFruit(v);
+  log(emoji);
+  return emoji;
+});
+
+Promise.all(smoothie).then((result) => {
+  console.log(result);
+});
