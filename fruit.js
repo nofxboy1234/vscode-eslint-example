@@ -12,7 +12,7 @@ const getFruit = async (name) => {
   return fruits[name];
 };
 
-const makeSmoothie = async () => {
+const makeSmoothieNonConcurrent = async () => {
   const a = await getFruit('pineapple');
   const b = await getFruit('strawberry');
 
@@ -39,7 +39,7 @@ const makeSmoothie2 = () => {
 // getFruit('peach').then(console.log);
 // console.log('hello');
 
-makeSmoothie().then(console.log);
+makeSmoothieNonConcurrent().then(console.log);
 console.log('hello');
 
 // makeSmoothie2().then(console.log);
