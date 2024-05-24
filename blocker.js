@@ -16,28 +16,28 @@ const codeBlocker = () => {
 
   // Async blocking
   // Creation of Promise and its internal While-loop are still happening on the main thread
-  return new Promise((resolve, reject) => {
-    hello().then(() => console.log('async bye!'));
-    let i = 0;
-    while (i < 1000000000) {
-      i++;
-    }
-    console.log('sync code');
-
-    // Only the resolving of the value that happens as a micro task
-    resolve('billion loops done');
-  });
-
-  // Async non-blocking
-  // console.log('sync code');
-  // return Promise.resolve().then((v) => {
-  //   console.log('async code 1');
+  // return new Promise((resolve, reject) => {
+  //   hello().then(() => console.log('async bye!'));
   //   let i = 0;
   //   while (i < 1000000000) {
   //     i++;
   //   }
-  //   return 'billion loops done';
+  //   console.log('sync code');
+
+  //   // Only the resolving of the value that happens as a micro task
+  //   resolve('billion loops done');
   // });
+
+  // Async non-blocking
+  console.log('sync code');
+  return Promise.resolve().then((v) => {
+    console.log('async code 1');
+    let i = 0;
+    while (i < 1000000000) {
+      i++;
+    }
+    return 'billion loops done';
+  });
 };
 
 log('Synchronous 1');
