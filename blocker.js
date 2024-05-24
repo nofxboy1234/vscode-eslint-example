@@ -30,13 +30,14 @@ const codeBlocker = () => {
 
   // Async non-blocking
   console.log('sync code');
+  hello();
   return Promise.resolve().then((v) => {
     console.log('\nasync code 1');
     let i = 0;
     while (i < 1000000000) {
       i++;
     }
-    console.log('big while loop complete')
+    console.log('big while loop complete');
     return 'billion loops done';
   });
 };
