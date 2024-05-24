@@ -31,11 +31,12 @@ const codeBlocker = () => {
   // Async non-blocking
   console.log('sync code');
   return Promise.resolve().then((v) => {
-    console.log('async code 1');
+    console.log('\nasync code 1');
     let i = 0;
     while (i < 1000000000) {
       i++;
     }
+    console.log('big while loop complete')
     return 'billion loops done';
   });
 };
@@ -45,7 +46,7 @@ log('Synchronous 1');
 // log(codeBlocker());
 const promise = codeBlocker();
 promise.then((result) => {
-  console.log('async code');
+  console.log('\nasync code 2');
   log(result);
 });
 
