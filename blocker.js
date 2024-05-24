@@ -22,7 +22,9 @@ const codeBlocker = () => {
   // });
 
   // Async non-blocking
+  console.log('sync code');
   return Promise.resolve().then((v) => {
+    console.log('async code');
     let i = 0;
     while (i < 1000000000) {
       i++;
