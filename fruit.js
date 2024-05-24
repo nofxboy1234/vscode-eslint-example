@@ -81,12 +81,20 @@ const badSmoothie = async () => {
 //   });
 
 const fruits = ['peach', 'pineapple', 'strawberry'];
-const smoothie = fruits.map(async (v) => {
-  const emoji = await getFruit(v);
-  log(emoji);
-  return emoji;
-});
 
-Promise.all(smoothie).then((result) => {
-  console.log(result);
-});
+// const smoothie = fruits.map(async (v) => {
+//   const emoji = await getFruit(v);
+//   log(emoji);
+//   return emoji;
+// });
+// Promise.all(smoothie).then((result) => {
+//   console.log(result);
+// });
+
+const fruitLoop = async () => {
+  for (const f of fruits) {
+    const emoji = await getFruit(f);
+    log(emoji);
+  }
+};
+fruitLoop();
