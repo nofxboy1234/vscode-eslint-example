@@ -13,12 +13,17 @@ const getFruit = async (name) => {
 };
 
 const makeSmoothie = async () => {
-  const a = getFruit('pineapple');
-  const b = getFruit('strawberry');
+  const a = await getFruit('pineapple');
+  const b = await getFruit('strawberry');
 
-  return Promise.all([a, b]);
-  // const smoothie = await Promise.all([a, b]);
-  // return smoothie;
+  return [a, b];
+
+  // const a = getFruit('pineapple');
+  // const b = getFruit('strawberry');
+
+  // return Promise.all([a, b]);
+  // // const smoothie = await Promise.all([a, b]);
+  // // return smoothie;
 };
 
 const makeSmoothie2 = () => {
@@ -31,8 +36,10 @@ const makeSmoothie2 = () => {
     .then((v) => [a, v]);
 };
 
-getFruit('peach').then(console.log);
+// getFruit('peach').then(console.log);
+// console.log('hello');
+
+makeSmoothie().then(console.log);
 console.log('hello');
 
-// makeSmoothie().then(console.log);
 // makeSmoothie2().then(console.log);
