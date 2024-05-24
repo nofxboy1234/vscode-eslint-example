@@ -46,11 +46,36 @@ const makeSmoothie2 = () => {
     .then((v) => [a, v]);
 };
 
+const badSmoothie = async () => {
+  try {
+    const a = getFruit('pineapple');
+    const b = getFruit('strawberry');
+
+    const smoothie = await Promise.all([a, b]);
+
+    throw 'broken!';
+
+    return smoothie;
+  } catch (err) {
+    console.error(`catch 1: ${err}`);
+    throw err;
+  }
+};
+
 // getFruit('peach').then(console.log);
 // console.log('hello');
 
-makeSmoothieConcurrent().then(log);
+// makeSmoothieConcurrent().then(log);
 // makeSmoothieNonConcurrent().then(log);
 console.log('hello');
 
 // makeSmoothie2().then(console.log);
+
+const promise = badSmoothie();
+promise
+  .then((result) => {
+    console.log(`Successful smoothie! - ${result}`);
+  })
+  .catch((err) => {
+    console.error(`catch 2: ${err}`);
+  });
