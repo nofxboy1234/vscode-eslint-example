@@ -91,9 +91,18 @@ const fruits = ['peach', 'pineapple', 'strawberry'];
 //   console.log(result);
 // });
 
+// const fruitLoop = async () => {
+//   for (const f of fruits) {
+//     const emoji = await getFruit(f);
+//     log(emoji);
+//   }
+// };
+// fruitLoop();
+
+const smoothie = fruits.map((v) => getFruit(v));
 const fruitLoop = async () => {
-  for (const f of fruits) {
-    const emoji = await getFruit(f);
+  for await (const emoji of smoothie) {
+    // const emoji = await getFruit(f); -- remove
     log(emoji);
   }
 };
