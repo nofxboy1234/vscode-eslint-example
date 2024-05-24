@@ -45,8 +45,7 @@ const codeBlocker = () => {
 log('Synchronous 1');
 
 // log(codeBlocker());
-const promise = codeBlocker();
-promise.then((result) => {
+codeBlocker().then((result) => {
   console.log('\nasync code 2');
   log(result);
 });
