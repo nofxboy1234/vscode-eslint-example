@@ -17,6 +17,8 @@ const codeBlocker = () => {
   //   while (i < 1000000000) {
   //     i++;
   //   }
+  //   console.log('sync code');
+
   //   // Only the resolving of the value that happens as a micro task
   //   resolve('billion loops done');
   // });
@@ -24,7 +26,7 @@ const codeBlocker = () => {
   // Async non-blocking
   console.log('sync code');
   return Promise.resolve().then((v) => {
-    console.log('async code');
+    console.log('async code 1');
     let i = 0;
     while (i < 1000000000) {
       i++;
@@ -37,6 +39,7 @@ log('Synchronous 1');
 
 // log(codeBlocker());
 codeBlocker().then((result) => {
+  console.log('async code');
   log(result);
 });
 
