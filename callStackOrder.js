@@ -2,7 +2,7 @@
 const startTime = Date.now();
 const log = (v) => console.log(`${v}: ${Date.now() - startTime}ms`);
 
-const blocker = () => {
+const callStackBlocker = () => {
   let i = 0;
   while (i < 1000000000) {
     i++;
@@ -27,7 +27,7 @@ const baz = () => log('baz');
   bar();
   await new Promise((resolve) => setTimeout(resolve, 3000));
   zoo();
-  blocker();
+  callStackBlocker();
   foo();
   baz();
 })();
