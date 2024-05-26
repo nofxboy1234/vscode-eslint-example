@@ -13,7 +13,7 @@ const foo = () => log('foo');
 
 const zoo = () => {
   log('Start of zoo timer');
-  setTimeout(() => log('End of zoo timer'), 2000);
+  setTimeout(() => log('End of zoo timer'), 0);
 };
 
 const bar = () => {
