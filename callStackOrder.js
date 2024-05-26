@@ -25,8 +25,9 @@ const baz = () => log('baz');
 
 (async () => {
   bar();
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   zoo();
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  blocker();
   foo();
   baz();
 })();
