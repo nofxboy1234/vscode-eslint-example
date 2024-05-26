@@ -4,8 +4,12 @@ function greet() {
 }
 
 function respond() {
-  return setTimeout(() => {
+  setTimeout(() => {
     console.log('Hey!');
+  }, 1000);
+
+  setTimeout(() => {
+    console.log('Hey2!');
   }, 1000);
 }
 
