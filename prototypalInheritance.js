@@ -2,6 +2,7 @@
 class Dog {
   constructor(name) {
     this.name = name;
+    this.age = 0;
   }
 
   bark() {
@@ -30,5 +31,21 @@ class Chihuahua extends Dog {
 // const dog2 = new Dog('Jack', 'Jack Russell', 'white');
 
 const myPet = new Chihuahua('Max');
+
+const person = {
+  name: 'Lydia',
+  age: 21,
+};
+
+const person1 = Object.create(person);
+const person2 = Object.create(person);
+
+console.log(person1.name);
+console.log(person2.name);
+
+person.name = 'Dylan';
+
+console.log(person1.name);
+console.log(person2.name);
 
 console.log('end');
