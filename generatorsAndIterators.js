@@ -1,12 +1,12 @@
 /* eslint-disable */
-function normalFunction() {
-  console.log('I am the coolest function!');
-  console.log('There is no way of stopping me');
-  console.log('Oh boi we are still going');
-  console.log('Okay finally all done now');
-}
+// function normalFunction() {
+//   console.log('I am the coolest function!');
+//   console.log('There is no way of stopping me');
+//   console.log('Oh boi we are still going');
+//   console.log('Okay finally all done now');
+// }
 
-normalFunction();
+// normalFunction();
 
 function* genFunc() {
   yield 'stars';
@@ -16,6 +16,9 @@ function* genFunc() {
   return 'Done';
 }
 const genObj = genFunc();
+
+// console.log([...genObj]);
+
 console.log(genObj.next());
 console.log(genObj.next());
 console.log(genObj.next());
