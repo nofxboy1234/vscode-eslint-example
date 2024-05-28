@@ -7,3 +7,18 @@ function normalFunction() {
 }
 
 normalFunction();
+
+function* genFunc() {
+  yield 'stars';
+  console.log('First log!');
+  yield 'hearts';
+  console.log('Second log');
+  return 'Done';
+}
+const genObj = genFunc();
+console.log(genObj.next());
+console.log(genObj.next());
+console.log(genObj.next());
+console.log(genObj.next());
+
+console.log('end');
