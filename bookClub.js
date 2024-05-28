@@ -48,10 +48,26 @@ function* iterateBookClubs(clubs) {
 }
 
 const it = iterateBookClubs(bookClubs);
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+
+function findBook(id) {
+  const genObj = iterateBookClubs(bookClubs);
+  let result = genObj.next();
+
+  while (!result.done) {
+    if (result.value.id === id) {
+      return result.value;
+    } else {
+      result = genObj.next();
+    }
+  }
+}
+
+const foundBook = findBook('ey812');
+// const foundBook = findBook('zzzzz');
 
 console.log('end');
