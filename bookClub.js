@@ -50,5 +50,8 @@ function* iterateBookClubs(clubs) {
 const it = iterateBookClubs(bookClubs);
 console.log(it.next());
 console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
 
 console.log('end');
