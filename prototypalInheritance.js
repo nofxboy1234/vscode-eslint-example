@@ -1,12 +1,14 @@
 /* eslint-disable */
-function Dog(name, breed, color) {
-  this.name = name;
-  this.breed = breed;
-  this.color = color;
+class Dog {
+  constructor(name, breed, color) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+  }
+  bark() {
+    console.log('Woof!');
+  }
 }
-Dog.prototype.bark = function () {
-  console.log('Woof!');
-};
 
 // console.log(Dog);
 // console.log('\n');
