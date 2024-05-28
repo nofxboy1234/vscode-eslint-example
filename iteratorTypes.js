@@ -9,10 +9,15 @@ const string = 'I love JavaScript!';
 const object = { name: 'Lydia Hallie' };
 object[Symbol.iterator] = function* () {
   // yield this;
+  // yield* Object.keys(this);
   yield Object.keys(this);
 };
 // console.log(`object: ${object[Symbol.iterator]}`);
-console.log([...object]);
+const result = [...object]; // [['name']]
+const item = result[0]; // ['name']
+const str = item[0]; // 'name'
+console.log('hello');
+// console.log([...object]);
 // for (let item of object) {
 //   console.log(item);
 // }
@@ -28,5 +33,15 @@ function* generatorFunction() {
 
 const generatorObject = generatorFunction();
 // console.log(`generatorObject: ${array[Symbol.iterator]}`);
+
+const emojis = ['a', 'b'];
+function* genFunc() {
+  yield 'c';
+  yield* emojis;
+  // yield emojis;
+  yield 'd';
+}
+const genObj = genFunc();
+console.log([...genObj]);
 
 console.log('end');
