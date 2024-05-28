@@ -28,7 +28,8 @@ const bookClubs = [
 
 function* iterateBooks(books) {
   for (let i = 0; i < books.length; i++) {
-    yield books[i];
+    const book = books[i];
+    yield book;
   }
 }
 
