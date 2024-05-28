@@ -3,10 +3,10 @@ function Dog(name, breed, color) {
   this.name = name;
   this.breed = breed;
   this.color = color;
-  this.bark = function () {
-    console.log('Woof!');
-  };
 }
+Dog.prototype.bark = function () {
+  console.log('Woof!');
+};
 
 // console.log(Dog);
 // console.log('\n');
