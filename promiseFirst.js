@@ -32,5 +32,6 @@ function bar() {
 }
 
 Promise.first([foo(), bar()]).then((result) => {
+// Promise.first([3, 4]).then((result) => {
   console.log(result);
 });
