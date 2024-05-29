@@ -9,7 +9,7 @@ Promise.all([p1, p2])
   .then(function (msgs) {
     // both `p1` and `p2` fulfill and pass in
     // their messages here
-    return fetch('https://amazon.com');
+    return fetch('https://google.com');
   })
   .then(function (msg) {
     console.log(msg);
