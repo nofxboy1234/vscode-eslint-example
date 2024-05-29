@@ -4,7 +4,7 @@ function foo() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('foo() won the race!');
-    }, 1000);
+    }, 2000);
   });
 }
 
@@ -22,16 +22,20 @@ function timeoutPromise(delay) {
 // setup a timeout for `foo()`
 Promise.race([
   foo(), // attempt `foo()`
-  timeoutPromise(3000), // give it 3 seconds
-]).then(
-  function (result) {
-    // `foo(..)` fulfilled in time!
-    console.log(result);
-  },
-  function (err) {
-    // either `foo()` rejected, or it just
-    // didn't finish in time, so inspect
-    // `err` to know which
-    console.error(err);
-  },
-);
+  timeoutPromise(1000), // give it 3 seconds
+])
+  .then(
+    function (result) {
+      // `foo(..)` fulfilled in time!
+      console.log(result);
+    },
+    function (err) {
+      // either `foo()` rejected, or it just
+      // didn't finish in time, so inspect
+      // `err` to know which
+      console.error(err);
+    },
+  )
+  .finally(() => {
+    console.log('Race completed!');
+  });
