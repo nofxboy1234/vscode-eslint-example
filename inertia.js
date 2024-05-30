@@ -1,16 +1,4 @@
 /* eslint-disable */
-function foo(x, y, cb) {
-  ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
-}
-
-foo(11, 31, function (err, text) {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(text);
-  }
-});
-
 // polyfill-safe guard check
 if (!Promise.wrap) {
   Promise.wrap = function (fn) {
@@ -32,3 +20,43 @@ if (!Promise.wrap) {
     };
   };
 }
+
+function ajax(url, cb) {
+  cb('Ajax error!', `${url} response`);
+}
+
+// function foo(x, y, cb) {
+//   ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
+// }
+
+function foo(x, y) {
+  return request('http://some.url.1/?x=' + x + '&y=' + y);
+}
+
+function callback(err, text) {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(text);
+  }
+}
+
+function fulfilled(msg) {
+  console.log(msg);
+}
+
+function rejected(err) {
+  console.error(err);
+}
+
+var request = Promise.wrap(ajax);
+// request('http://some.url.1/').then(fulfilled).catch(rejected);
+
+// foo(11, 31, callback);
+foo(11, 31)
+  .then(function fulfilled(msg) {
+    console.log(msg);
+  })
+  .catch(function rejected(err) {
+    console.error(err);
+  });
