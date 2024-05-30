@@ -3,7 +3,10 @@
 if (!Promise.wrap) {
   Promise.wrap = function (fn) {
     return function () {
-      var args = [].slice.call(arguments);
+      // var args = [].slice.call(arguments);
+      var args = [...arguments];
+      console.log(arguments);
+      console.log(args);
 
       return new Promise(function (resolve, reject) {
         fn.apply(
