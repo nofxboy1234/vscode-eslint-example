@@ -30,3 +30,7 @@ Promise.all(foo(10, 20)).then(
     console.log(x, y); // 200 599
   }),
 );
+
+Promise.all(foo(10, 20)).then(function ([x, y]) {
+  console.log(x, y);
+});
