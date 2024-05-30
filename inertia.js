@@ -32,20 +32,20 @@ function ajax(url, cb) {
   // cb('Ajax error!', `${url} response`);
 }
 
-// function foo(x, y, cb) {
-//   ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
-// }
-
-function foo(x, y) {
-  return request('http://some.url.1/?x=' + x + '&y=' + y);
-}
-
 function callback(err, text) {
   if (err) {
     console.error(err);
   } else {
     console.log(text);
   }
+}
+
+// function foo(x, y, cb) {
+//   ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
+// }
+
+function foo(x, y) {
+  return request('http://some.url.1/?x=' + x + '&y=' + y);
 }
 
 var request = Promise.wrap(ajax);
