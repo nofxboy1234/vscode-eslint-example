@@ -2,7 +2,7 @@
 function foo(x, y, cb) {
   ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
 }
-j
+
 foo(11, 31, function (err, text) {
   if (err) {
     console.error(err);
