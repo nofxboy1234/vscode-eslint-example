@@ -41,16 +41,7 @@ function callback(err, text) {
   }
 }
 
-function fulfilled(msg) {
-  console.log(msg);
-}
-
-function rejected(err) {
-  console.error(err);
-}
-
 var request = Promise.wrap(ajax);
-// request('http://some.url.1/').then(fulfilled).catch(rejected);
 
 // foo(11, 31, callback);
 foo(11, 31)
