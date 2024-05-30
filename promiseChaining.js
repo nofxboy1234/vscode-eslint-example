@@ -26,6 +26,10 @@ const p3 = p2.then((result) => {
 const p4 = p3.then((result) => {
   console.log(result);
 });
+const p5 = p3.finally(() => {
+  console.log('finally!');
+  console.log(p4);
+});
 
 // async function hello() {
 //   //
