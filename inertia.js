@@ -28,7 +28,8 @@ if (!Promise.wrap) {
 }
 
 function ajax(url, cb) {
-  cb('Ajax error!', `${url} response`);
+  cb(undefined, `${url} response`);
+  // cb('Ajax error!', `${url} response`);
 }
 
 // function foo(x, y, cb) {
