@@ -12,3 +12,11 @@ p.then(function (evt) {
 }).then(function (text) {
   console.log(text);
 });
+
+click('#mybtn', function (evt) {
+  var btnID = evt.currentTarget.id;
+
+  request('http://some.url.1/?id=' + btnID).then(function (text) {
+    console.log(text);
+  });
+});
