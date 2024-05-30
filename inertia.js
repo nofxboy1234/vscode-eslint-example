@@ -1,11 +1,11 @@
 /* eslint-disable */
-// polyfill-safe guard check
 
 function copyArguments(args) {
   // return [].slice.call(arguments);
   return [...args];
 }
 
+// polyfill-safe guard check
 if (!Promise.wrap) {
   Promise.wrap = function (fn) {
     return function () {
