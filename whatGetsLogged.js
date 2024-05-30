@@ -1,8 +1,9 @@
 /* eslint-disable */
-new Promise((resolve) => {
+const p = new Promise((resolve) => {
   console.log(1);
   resolve(2);
-}).then((result) => {
+});
+p.then((result) => {
   console.log(result);
 });
 
