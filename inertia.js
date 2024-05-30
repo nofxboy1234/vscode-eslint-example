@@ -40,18 +40,33 @@ function callback(err, text) {
   }
 }
 
+// make a promissory for `ajax(..)`
+var request = Promise.wrap(ajax);
+
 // function foo(x, y, cb) {
 //   ajax('http://some.url.1/?x=' + x + '&y=' + y, cb);
 // }
 
-function foo(x, y) {
-  return request('http://some.url.1/?x=' + x + '&y=' + y);
+// refactor `foo(..)`, but keep it externally
+// callback-based for compatibility with other
+// parts of the code for now -- only use
+// `request(..)`'s promise internally.
+function foo(x, y, cb) {
+  request('http://some.url.1/?x=' + x + '&y=' + y).then(function fulfilled(
+    text,
+  ) {
+    cb(null, text);
+  }, cb);
 }
 
-var request = Promise.wrap(ajax);
+// function foo(x, y) {
+//   return request('http://some.url.1/?x=' + x + '&y=' + y);
+// }
+
+var betterFoo = Promise.wrap(foo);
 
 // foo(11, 31, callback);
-foo(11, 31)
+betterFoo(11, 31)
   .then(function fulfilled(msg) {
     console.log(msg);
   })
