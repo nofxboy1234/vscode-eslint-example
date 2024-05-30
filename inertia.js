@@ -32,13 +32,13 @@ function ajax(url, cb) {
   // cb('Ajax error!', `${url} response`);
 }
 
-function callback(err, text) {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(text);
-  }
-}
+// function callback(err, text) {
+//   if (err) {
+//     console.error(err);
+//   } else {
+//     console.log(text);
+//   }
+// }
 
 // make a promissory for `ajax(..)`
 var request = Promise.wrap(ajax);
