@@ -31,4 +31,5 @@ const p4 = p3.then((result) => {
 //   //
 // }
 // const p = hello();
-// console.log('end');
+
+console.log('end');
