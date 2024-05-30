@@ -10,7 +10,6 @@ but they aren't fulfilled at this point since the first handler is still
 waiting on the microtask queue. Only when the callstack is empty would this 
 resolve and add the next then's handler to the microtask queue.
 
-https://youtu.be/Xs1EMmBLpn4?list=PLaYco3qR_dVJm_clCOg-B4KXhPsonE7hx&t=108
 https://youtu.be/Xs1EMmBLpn4?list=PLaYco3qR_dVJm_clCOg-B4KXhPsonE7hx&t=417
 */
 
