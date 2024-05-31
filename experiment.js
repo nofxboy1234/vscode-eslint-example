@@ -2,7 +2,6 @@
 function hello() {
   return new Promise((resolve, reject) => {
     fetch('https://skjdfhdskjaf.com').catch((err) => {
-      // console.error(err);
       reject(err);
     });
   });
