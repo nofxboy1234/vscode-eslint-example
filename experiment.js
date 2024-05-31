@@ -17,24 +17,3 @@ p.then((result) => {
 });
 
 console.log('end');
-
-// ***************************************
-// async function hello() {
-//   try {
-//     await fetch('https://google.com');
-//     // await fetch('https://googleeeeeeee.com');
-//     return result;
-//   } catch (err) {
-//     throw err;
-//   }
-// }
-
-// hello()
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-
-// console.log('end');
