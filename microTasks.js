@@ -5,7 +5,9 @@ function asyncStuff() {
 function hello() {
   return new Promise((resolve, reject) => {
     console.log('sync: Starting hello promise');
-    queueMicrotask(asyncStuff);
+
+    Promise.resolve().then(asyncStuff);
+    // queueMicrotask(asyncStuff);
 
     // resolve('hello promise fulfilled!');
     reject(Error('hello promise rejected!'));
