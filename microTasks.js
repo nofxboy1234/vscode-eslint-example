@@ -1,32 +1,44 @@
-function asyncStuff() {
-  console.log('async: Stuff!');
-  return 'asyncStuff result';
-}
+const microtask = () => {};
 
-function hello() {
-  return new Promise((resolve, reject) => {
-    console.log('sync: Starting hello promise');
-
-    Promise.resolve()
-      .then(asyncStuff)
-      .then((result) => {
-        console.log(result);
-      });
-    // queueMicrotask(asyncStuff);
-
-    // resolve('hello promise fulfilled!');
-    reject(Error('hello promise rejected!'));
+async function test() {
+  queueMicrotask(() => {
+    console.log('1');
+    queueMicrotask(() => {
+      console.log('2');
+    });
   });
+  await microtask();
+  console.log('3');
 }
 
-function fulfilled(result) {
-  console.log(result);
-}
+test();
 
-function rejected(err) {
-  console.error(err);
-}
+// function asyncStuff() {
+//   console.log('async: Stuff!');
+//   return 'asyncStuff result';
+// }
 
-hello().then(fulfilled).catch(rejected);
+// function hello() {
+//   return new Promise((resolve, reject) => {
+//     console.log('sync: Starting hello promise');
 
-console.log('end');
+//     Promise.resolve()
+//       .then(asyncStuff)
+//       .then((result) => {
+//         console.log(result);
+//         resolve('hello promise fulfilled!');
+//       });
+//   });
+// }
+
+// function fulfilled(result) {
+//   console.log(result);
+// }
+
+// function rejected(err) {
+//   console.error(err);
+// }
+
+// hello().then(fulfilled).catch(rejected);
+
+// console.log('end');
