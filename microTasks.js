@@ -10,7 +10,7 @@
 // }
 // test();
 
-function asyncStuff() {
+async function asyncStuff() {
   console.log('async: Stuff!');
   return 'asyncStuff result';
 }
