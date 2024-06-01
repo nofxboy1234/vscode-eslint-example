@@ -1,13 +1,11 @@
-const microtask = () => {};
-
 async function test() {
-  queueMicrotask(() => {
+  await queueMicrotask(() => {
     console.log('1');
     queueMicrotask(() => {
       console.log('2');
     });
   });
-  await microtask();
+  
   console.log('3');
 }
 
