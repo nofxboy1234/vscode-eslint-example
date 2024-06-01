@@ -5,10 +5,9 @@ async function test() {
       console.log('2');
     });
   });
-  
+
   console.log('3');
 }
-
 test();
 
 // function asyncStuff() {
