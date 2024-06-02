@@ -10,15 +10,20 @@
 // }
 // test();
 
+let result;
+
 async function asyncStuff() {
   console.log('async: Stuff!');
-  return 'asyncStuff result';
+
+  result = 'asyncStuff result';
+  return result;
 }
 
 async function asyncHello() {
   console.log('sync: Starting hello promise');
 
-  const result = await queueMicrotask(asyncStuff);
+  await queueMicrotask(asyncStuff);
+  // const result = await queueMicrotask(asyncStuff);
   console.log(result);
   return 'hello promise fulfilled!';
 }
