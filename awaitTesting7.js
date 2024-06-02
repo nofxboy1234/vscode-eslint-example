@@ -1,4 +1,4 @@
-async function f3() {
+async function hello() {
   const y = await 20;
   console.log(y); // 20
 
@@ -6,5 +6,5 @@ async function f3() {
   console.log((await obj) === obj); // true
 }
 
-f3();
+hello();
 console.log('end');
